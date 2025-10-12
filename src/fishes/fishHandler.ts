@@ -2,7 +2,7 @@ import { fishes } from "./fishes.js";
 
 class FishHandler {
     getFishIds(): string[] {
-        return fishes.map(fish => fish.id);
+        return fishes.map((fish) => fish.id);
     }
 }
 

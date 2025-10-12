@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write **/*.{ts,html}",
+    "format": "prettier --write \"**/*.{ts,html}\"",
     "build": "tsc",
     "watch": "tsc -w",
     "serve": "node server.js",
