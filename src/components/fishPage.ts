@@ -1,25 +1,30 @@
+import type { FishEntry } from "../fishes/fishes";
+
+export type FishPageState = {
+  info: FishEntry | null;
+};
+
 export class FishPage extends HTMLElement {
-    constructor() {
-        super();
-        const shadow = this.attachShadow({ mode: "open" });
-        shadow.innerHTML = `
-      <div>This is the fish page component.</div>
+  #shadow: ShadowRoot;
+  constructor() {
+    super();
+    this.#shadow = this.attachShadow({ mode: "open" });
+    this.render(null);
+  }
+
+  updateState(state: FishPageState) {
+    this.render(state.info);
+  }
+
+  render(fishEntry: FishEntry | null) {
+    if (!fishEntry) {
+      this.#shadow.innerHTML = `<div>No fish selected.</div>`;
+      return;
+    }
+    this.#shadow.innerHTML = `
+    <div>This is the fish page component ${fishEntry.name}.</div>
     `;
-    }
-
-    connectedCallback() {
-        this.shadowRoot
-            ?.getElementById("btn")
-            ?.addEventListener("click", () => {
-                alert("Button clicked!");
-            });
-    }
-
-    disconnectedCallback() {
-        this.shadowRoot
-            ?.getElementById("btn")
-            ?.removeEventListener("click", () => {});
-    }
+  }
 }
 
 customElements.define("fish-page", FishPage);
