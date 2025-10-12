@@ -1,44 +1,38 @@
-export class MyElement extends HTMLElement {
-  constructor() {
-    super();
-    const shadow = this.attachShadow({ mode: "open" });
-    shadow.innerHTML = `
-      <style>
-        :host {
-          display: block;
-          padding: 1rem;
-          background: #f0f0f0;
-          border-radius: 8px;
-          font-family: sans-serif;
-        }
-        button {
-          background: #0078d7;
-          color: white;
-          border: none;
-          border-radius: 4px;
-          padding: 0.5rem 1rem;
-          cursor: pointer;
-        }
-        button:hover {
-          background: #005fa3;
-        }
-      </style>
-      <h2>Hello, Web Component!</h2>
-      <button id="btn">Click me</button>
-    `;
-  }
+import "./components/fishPage.js";
+import "./components/sideMenu.js";
+import { parseLocation } from "./utils/utils.js";
+import type { LocationInfo } from "./utils/utils";
+import type { SideMenu } from "./components/sideMenu";
 
-  connectedCallback() {
-    this.shadowRoot?.getElementById("btn")?.addEventListener("click", () => {
-      alert("Button clicked!");
-    });
-  }
+export class FishApp extends HTMLElement {
+    #locationInfo: LocationInfo | null = null;
 
-  disconnectedCallback() {
-    this.shadowRoot
-      ?.getElementById("btn")
-      ?.removeEventListener("click", () => {});
-  }
+    constructor() {
+        super();
+        const shadow = this.attachShadow({ mode: "open" });
+        shadow.innerHTML = `
+            <style>
+                :host {
+                display: block;
+                width: 100%;
+                height: 100%;
+                overflow: hidden; /* prevents scroll */
+                }
+            </style>
+            <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
+                <fish-side-menu id="fish-side-menu"></fish-side-menu>
+                <fish-page></fish-page>
+            </div>`;
+
+        this.#locationInfo = parseLocation(window.location.pathname);
+    }
+
+    connectedCallback() {
+        const sideMenu = this.shadowRoot?.getElementById(
+            "fish-side-menu",
+        ) as SideMenu | null;
+        sideMenu?.updateState({ locationInfo: this.#locationInfo });
+    }
 }
 
-customElements.define("fish-app", MyElement);
+customElements.define("fish-app", FishApp);
