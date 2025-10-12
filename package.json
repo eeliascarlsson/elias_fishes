@@ -1,0 +1,14 @@
+{
+  "name": "elias_fish",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write **/*.{ts,html}"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
