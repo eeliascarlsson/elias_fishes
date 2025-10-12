@@ -21,8 +21,26 @@ export class FishPage extends HTMLElement {
       this.#shadow.innerHTML = `<div>No fish selected.</div>`;
       return;
     }
+
     this.#shadow.innerHTML = `
-    <div>This is the fish page component ${fishEntry.name}.</div>
+    <div id="fish-page">
+        <p id="title" >${fishEntry.name} from ${fishEntry.contry}</p>
+    </div>
+
+    <style>
+        #fish-page {
+            display: flex;
+            flex-direction: column;
+        }
+        #title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        p {
+            margin: 0px;
+        }
+    </style>
     `;
   }
 }
