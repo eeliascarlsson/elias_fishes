@@ -26,7 +26,7 @@ function populateSideMenu() {
   fishIds.forEach((fishId) => {
     const a = document.createElement("a");
     a.href = `#fish/${fishId}`;
-    a.textContent = fishId.charAt(0).toUpperCase() + fishId.slice(1);
+    a.textContent = fishHandler.getEntryById(fishId).name;
     a.id = `side-menu-${fishId}`;
     sideMenu.appendChild(a);
   });
@@ -168,14 +168,12 @@ function getPopulatedFishPage(fishEntry) {
 
   const fishInfoElem = clone.getElementById("fish-body");
   fishInfoElem.innerHTML = "";
-  fishEntry.info.forEach((infoLine) => {
-    const p = document.createElement("p");
-    p.textContent = infoLine;
-    fishInfoElem.appendChild(p);
-  });
+  const p = document.createElement("p");
+  p.textContent = fishEntry.info;
+  fishInfoElem.appendChild(p);
 
   const fishImage = clone.getElementById("fish-image");
-  fishImage.src = `./assets/${fishEntry.id}.jpg`;
+  fishImage.src = `./assets/${fishEntry.id}.jpeg`;
   fishImage.alt = fishEntry.name;
 
   return clone;

@@ -22,8 +22,8 @@
   <body>
     <div id="root">
       <div id="side-menu">
-        <a id="side-menu-welcome" href="/#welcome">Welcome</a>
-        <a id="side-menu-map" href="/#map">Map</a>
+        <a id="side-menu-welcome" href="/#welcome">Välkommen</a>
+        <a id="side-menu-map" href="/#map">Kartan</a>
       </div>
       <div id="content"></div>
     </div>
@@ -105,7 +105,6 @@
 
       #side-menu-welcome {
         font-weight: bold;
-        font-size: 18px;
       }
     </style>
     <script type="module" src="./src/app.js"></script>
@@ -113,9 +112,10 @@
 
   <template id="welcome-content">
     <div id="welcome-info">
-      <h1>Welcome to Elias Fishes!</h1>
+      <h1>Välkommen till Elias Fiskar!</h1>
       <p>
-        This page is dedicated to my friends that keeps on gifting me fishes.
+        Denna sida är till mina vänner som ger mig många fiskar och masssa
+        glädje.
       </p>
     </div>
 
@@ -130,6 +130,7 @@
         border-radius: 5px;
         border: 3px solid var(--fish-gray);
         padding: 10px;
+        gap: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
     </style>
@@ -138,8 +139,8 @@
   <template id="map-content">
     <div id="map-container">
       <p id="map-title">
-        Currently we have <span id="gifted-count"></span> fishes from
-        <span id="gifted-countries"></span> different countries.
+        Vi har <span id="gifted-count"></span> fiskar från
+        <span id="gifted-countries"></span> olika länder.
       </p>
       <div id="regions_div" style="width: 600px"></div>
     </div>
@@ -180,19 +181,19 @@
       <div id="fish-header-info">
         <p id="fish-title"></p>
         <div id="fish-stats">
-          <p>From:</p>
+          <p>Från:</p>
           <p id="fish-from"></p>
-          <p>Date:</p>
+          <p>Datum:</p>
           <p id="fish-date"></p>
-          <p>Country:</p>
+          <p>Land:</p>
           <p id="fish-country"></p>
           <p>Swag:</p>
           <p id="fish-swag"></p>
-          <p>Usability:</p>
+          <p>Användbarhet:</p>
           <p id="fish-usability"></p>
-          <p>Gabbe compatibility:</p>
+          <p>Gabbe-kompatibilitet:</p>
           <p id="fish-gabbe-comp"></p>
-          <p>Info:</p>
+          <p>Mer info:</p>
           <div id="fish-body"></div>
         </div>
       </div>
@@ -206,13 +207,14 @@
         background-color: rgba(255, 255, 255, 0.5);
         padding: 25px;
         border-radius: 5px;
+        gap: 40px;
         border: 3px solid var(--fish-gray);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
 
       #fish-stats {
         display: grid;
-        grid-template-columns: 1fr 250px;
+        grid-template-columns: 1fr 200px;
         gap: 10px;
         margin-top: 10px;
       }
@@ -228,8 +230,10 @@
       }
 
       #fish-image {
-        height: 200px;
+        width: 200px;
         object-fit: contain;
+        border-radius: 5px;
+        border: 2px solid var(--fish-dark-gray);
       }
     </style>
   </template>
