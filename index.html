@@ -1,5 +1,13 @@
 <!doctype html>
 <html lang="en">
+  <style>
+    :root {
+      --fish-gray: rgb(230, 230, 230);
+      --fish-green: rgb(130, 190, 190);
+      --fish-dark-gray: rgb(20, 30, 30);
+    }
+  </style>
+
   <head>
     <meta charset="UTF-8" />
     <title>Elias Fishes</title>
@@ -34,19 +42,21 @@
       h5,
       h6 {
         margin: 0;
+        color: var(--fish-dark-gray)
       }
 
       p {
         margin: 0;
+        color: var(--fish-dark-gray)
       }
 
       a {
         text-decoration: none;
-        color: gray;
+        color: var(--fish-gray);
       }
 
       a.active {
-        color: #007bff;
+        color: var(--fish-green);
         font-weight: bold;
       }
 
@@ -66,7 +76,10 @@
         padding: 10px 20px;
         gap: 50px;
         align-items: center;
-        background-color: aqua;
+        background-image: url("assets/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
 
       #side-menu {
@@ -74,10 +87,13 @@
         flex-direction: column;
         width: 200px;
         height: 100%;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
+        border-right: 2px solid gray;
         padding: 10px;
         gap: 10px;
+        background-image: url("assets/side-menu.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
 
       #side-menu-welcome {
@@ -103,19 +119,24 @@
         align-items: center;
         text-align: center;
         max-width: 600px;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 5px;
+        border: 3px solid var(--fish-gray);
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
     </style>
   </template>
 
   <template id="fish-content">
-    <div class="fish-page">
-      <div id="fish-header">
+    <div class="fish-card">
         <div id="fish-header-info">
           <p id="fish-title"></p>
           <div id="fish-stats">
             <p>From:</p>
             <p id="fish-from"></p>
+            <p>Date:</p>
+            <p id="fish-date"></p>
             <p>Country:</p>
             <p id="fish-country"></p>
             <p>Swag:</p>
@@ -129,19 +150,19 @@
           </div>
         </div>
         <img id="fish-image" />
-      </div>
     </div>
     <style>
-      .fish-page {
-        display: flex;
-        flex-direction: column;
-        background-color: white;
-      }
-
-      #fish-header {
+      .fish-card {
         display: flex;
         flex-direction: row;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 25px;
+        border-radius: 5px;
+        border: 3px solid var(--fish-gray);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
+
       #fish-stats {
         display: grid;
         grid-template-columns: 1fr 250px;

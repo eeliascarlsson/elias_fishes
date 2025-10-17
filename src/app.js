@@ -77,7 +77,7 @@ function getPopulatedFishPage(fishEntry) {
   if (!template) return;
   const clone = template.content.cloneNode(true);
 
-  const fishPageDiv = clone.querySelector(".fish-page");
+  const fishPageDiv = clone.querySelector(".fish-card");
   if (fishPageDiv) {
     fishPageDiv.id = `fish-${fishEntry.id}`;
   }
@@ -87,6 +87,9 @@ function getPopulatedFishPage(fishEntry) {
 
   const fishFromElem = clone.getElementById("fish-from");
   fishFromElem.textContent = fishEntry.from;
+
+  const fishDateElem = clone.getElementById("fish-date");
+  fishDateElem.textContent = fishEntry.date;
 
   const fishCountryElem = clone.getElementById("fish-country");
   fishCountryElem.textContent = fishEntry.country;
