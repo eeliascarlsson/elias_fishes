@@ -5,6 +5,7 @@
       --fish-gray: rgb(230, 230, 230);
       --fish-green: rgb(130, 190, 190);
       --fish-dark-gray: rgb(20, 30, 30);
+      --fish-dark-green: rgb(30, 70, 70);
     }
   </style>
 
@@ -12,12 +13,17 @@
     <meta charset="UTF-8" />
     <title>Elias Fishes</title>
     <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
   </head>
 
   <body>
     <div id="root">
       <div id="side-menu">
-        <a id="side-menu-welcome" href="/#">Welcome</a>
+        <a id="side-menu-welcome" href="/#welcome">Welcome</a>
+        <a id="side-menu-map" href="/#map">Map</a>
       </div>
       <div id="content"></div>
     </div>
@@ -42,12 +48,12 @@
       h5,
       h6 {
         margin: 0;
-        color: var(--fish-dark-gray)
+        color: var(--fish-dark-gray);
       }
 
       p {
         margin: 0;
-        color: var(--fish-dark-gray)
+        color: var(--fish-dark-gray);
       }
 
       a {
@@ -88,7 +94,8 @@
         width: 200px;
         height: 100%;
         border-right: 2px solid gray;
-        padding: 10px;
+        padding-left: 20px;
+        padding-top: 20px;
         gap: 10px;
         background-image: url("assets/side-menu.jpeg");
         background-size: cover;
@@ -128,28 +135,68 @@
     </style>
   </template>
 
+  <template id="map-content">
+    <div id="map-container">
+      <p id="map-title">
+        Currently we have <span id="gifted-count"></span> fishes from
+        <span id="gifted-countries"></span> different countries.
+      </p>
+      <div id="regions_div" style="width: 600px"></div>
+    </div>
+
+    <style>
+      #map-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        border: 3px solid var(--fish-gray);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      #map-title {
+        font-size: 18px;
+      }
+
+      #gifted-count {
+        font-weight: bold;
+        color: var(--fish-dark-green);
+        font-size: 20px;
+      }
+
+      #gifted-countries {
+        font-weight: bold;
+        color: var(--fish-dark-green);
+        font-size: 20px;
+      }
+    </style>
+  </template>
+
   <template id="fish-content">
     <div class="fish-card">
-        <div id="fish-header-info">
-          <p id="fish-title"></p>
-          <div id="fish-stats">
-            <p>From:</p>
-            <p id="fish-from"></p>
-            <p>Date:</p>
-            <p id="fish-date"></p>
-            <p>Country:</p>
-            <p id="fish-country"></p>
-            <p>Swag:</p>
-            <p id="fish-swag"></p>
-            <p>Usability:</p>
-            <p id="fish-usability"></p>
-            <p>Gabbe compatibility:</p>
-            <p id="fish-gabbe-comp"></p>
-            <p>Info:</p>
-            <div id="fish-body"></div>
-          </div>
+      <div id="fish-header-info">
+        <p id="fish-title"></p>
+        <div id="fish-stats">
+          <p>From:</p>
+          <p id="fish-from"></p>
+          <p>Date:</p>
+          <p id="fish-date"></p>
+          <p>Country:</p>
+          <p id="fish-country"></p>
+          <p>Swag:</p>
+          <p id="fish-swag"></p>
+          <p>Usability:</p>
+          <p id="fish-usability"></p>
+          <p>Gabbe compatibility:</p>
+          <p id="fish-gabbe-comp"></p>
+          <p>Info:</p>
+          <div id="fish-body"></div>
         </div>
-        <img id="fish-image" />
+      </div>
+      <img id="fish-image" />
     </div>
     <style>
       .fish-card {

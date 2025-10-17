@@ -1,10 +1,14 @@
 export const parseLocation = (location) => {
-  if (location === "") {
+  if (location.startsWith("/")) return null;
+  if (!location.startsWith("#")) return null;
+
+  if (location === "#welcome") {
     return { type: "welcome" };
   }
 
-  if (location.startsWith("/")) return null;
-  if (!location.startsWith("#")) return null;
+  if (location === "#map") {
+    return { type: "map" };
+  }
 
   if (location.startsWith("#fish/")) {
     const parts = location.split("/");

@@ -9,10 +9,10 @@ window.addEventListener("hashchange", () => {
   highlightMenuItem(location);
 });
 
-const location = parseLocation(window.location.hash);
 populateSideMenu();
-highlightMenuItem(location);
 populateContent();
+addScrollHandler();
+highlightMenuItem();
 
 // Functions:
 function appendContent(newContent) {
@@ -36,6 +36,8 @@ function populateContent() {
   const template = document.querySelector("template#welcome-content");
   appendContent(template.content.cloneNode(true));
 
+  addWorldMap();
+
   for (const fishId of fishIds) {
     const fishEntry = fishHandler.getEntryById(fishId);
     const fishPage = getPopulatedFishPage(fishEntry);
@@ -45,22 +47,78 @@ function populateContent() {
   }
 }
 
-function highlightMenuItem(location) {
-  if (location === null) return;
+function addWorldMap() {
+  const template = document.querySelector("template#map-content");
+  if (!template) return;
+  const clone = template.content.cloneNode(true);
+  appendContent(clone);
+
+  const regionsDiv = clone.querySelector("#regions_div");
+  if (regionsDiv) {
+    regionsDiv.style.width = "400px";
+    regionsDiv.style.height = "400px";
+  }
+
+  google.charts.load("current", {
+    packages: ["geochart"],
+  });
+  google.charts.setOnLoadCallback(drawRegionsMap);
+
+  function drawRegionsMap() {
+    const data = google.visualization.arrayToDataTable([
+      ["Country", "Data"],
+      ...fishHandler
+        .getCountries()
+        .map(({ country, count }) => [country, count]),
+    ]);
+
+    const options = {
+      backgroundColor: "transparent",
+      datalessRegionColor: "var(--fish-dark-gray)",
+      colorAxis: { colors: ["rgb(130, 190, 190)", "rgb(130, 190, 190)"] },
+      legend: "none",
+      tooltip: { trigger: "none" },
+      enableRegionInteractivity: false,
+    };
+
+    const chart = new google.visualization.GeoChart(
+      document.getElementById("regions_div"),
+    );
+
+    chart.draw(data, options);
+
+    document.getElementById("gifted-countries").textContent =
+      fishHandler.getCountries().length;
+
+    const totalFish = fishIds.length;
+    document.getElementById("gifted-count").textContent = totalFish;
+  }
+}
+
+function highlightMenuItem() {
+  // Remove active class from all items
   const sideMenu = document.getElementById("side-menu");
   if (!sideMenu) return;
-
-  // Remove active class from all items
   const items = sideMenu.querySelectorAll("a");
   items.forEach((item) => {
     item.classList.remove("active");
   });
+
+  const location = parseLocation(window.location.hash);
+  if (location === null) return;
 
   // Add active class to current item
   if (location.type === "welcome") {
     const homeItem = sideMenu.querySelector("#side-menu-welcome");
     if (homeItem) {
       homeItem.classList.add("active");
+    }
+  }
+
+  if (location.type === "map") {
+    const mapItem = sideMenu.querySelector("#side-menu-map");
+    if (mapItem) {
+      mapItem.classList.add("active");
     }
   }
 
@@ -132,10 +190,28 @@ function handleLocationChange(location) {
     return;
   }
 
+  if (location.type === "map") {
+    const mapContent = document.getElementById("map-container");
+    if (mapContent) {
+      mapContent.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   if (location.type === "fish") {
     const fishContent = document.getElementById(`fish-${location.fishId}`);
     if (fishContent) {
       fishContent.scrollIntoView({ behavior: "smooth" });
     }
   }
+}
+
+function addScrollHandler() {
+  const content = document.getElementById("content");
+  if (!content) return;
+
+  content.addEventListener("wheel", () => {
+    if (window.location.hash === "") return;
+    window.location.hash = "";
+    highlightMenuItem(null);
+  });
 }

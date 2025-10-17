@@ -12,7 +12,7 @@ const conny = {
 const test = {
   id: "test",
   name: "Test",
-  country: "Nowhere",
+  country: "Sweden",
   swag: 5,
   usability: 5,
   info: ["This is a test fish"],
@@ -23,7 +23,7 @@ const test = {
 const test2 = {
   id: "test2",
   name: "Test 2",
-  country: "Nowhere",
+  country: "Russia",
   swag: 5,
   usability: 5,
   info: ["This is a test fish"],
