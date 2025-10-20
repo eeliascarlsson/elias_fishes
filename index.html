@@ -26,6 +26,15 @@
         <a id="side-menu-map" href="/#map">Kartan</a>
       </div>
       <div id="content"></div>
+      <script>
+        window.addEventListener("DOMContentLoaded", () => {
+          const template = document.getElementById("sea-weed");
+          if (template) {
+            const clone = template.content.cloneNode(true);
+            document.getElementById("root").appendChild(clone);
+          }
+        });
+      </script>
     </div>
 
     <style>
@@ -86,6 +95,7 @@
         padding: 10px 20px;
         gap: 50px;
         align-items: center;
+        padding-right: 100px;
         padding-bottom: 100px;
       }
 
@@ -257,6 +267,105 @@
         object-fit: contain;
         border-radius: 5px;
         border: 2px solid var(--fish-dark-gray);
+      }
+    </style>
+  </template>
+
+  <template id="sea-weed">
+    <div class="seaweed-container">
+      <div class="seaweed frond frond-1"></div>
+      <div class="seaweed frond frond-2"></div>
+      <div class="seaweed frond frond-3"></div>
+    </div>
+
+    <style>
+      .seaweed-container {
+        position: absolute;
+        bottom: 0;
+        right: 50px;
+        width: 100px;
+        height: 180px;
+        perspective: 150px;
+        z-index: 10;
+      }
+
+      .seaweed {
+        position: absolute;
+        bottom: 0;
+        width: 25px;
+        height: 150px;
+        background: linear-gradient(
+          to top,
+          #2e8b57 0%,
+          #3cb371 60%,
+          #4caf50 100%
+        );
+        border-radius: 15px 15px 0 0;
+        transform-origin: bottom center;
+        transition:
+          transform 0.8s ease-out,
+          background 0.2s;
+        box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.1) inset;
+
+        transform: rotate(-5deg);
+      }
+
+      .frond-1 {
+        left: 5px;
+        height: 140px;
+        width: 20px;
+        background: linear-gradient(
+          to top,
+          #388e3c 0%,
+          #43a047 60%,
+          #4caf50 100%
+        );
+      }
+
+      .frond-2 {
+        left: 30px;
+        height: 160px;
+        width: 25px;
+        background: linear-gradient(
+          to top,
+          #2e8b57 0%,
+          #3cb371 60%,
+          #4caf50 100%
+        );
+      }
+
+      .frond-3 {
+        left: 60px;
+        height: 130px;
+        width: 18px; /* Thinnest frond */
+        background: linear-gradient(
+          to top,
+          #1b5e20 0%,
+          #2e7d32 60%,
+          #388e3c 100%
+        );
+      }
+
+      @keyframes sway {
+        0%,
+        100% {
+          transform: rotate(-5deg) translateZ(0);
+        }
+        50% {
+          transform: rotate(5deg) translateZ(10px);
+        }
+      }
+
+      .frond-1 {
+        animation: sway 5s infinite ease-in-out;
+      }
+
+      .frond-2 {
+        animation: sway 4.5s infinite ease-in-out -0.5s;
+      }
+
+      .frond-3 {
+        animation: sway 5.5s infinite ease-in-out 0.2s;
       }
     </style>
   </template>
