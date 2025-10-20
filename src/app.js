@@ -13,6 +13,7 @@ populateSideMenu();
 populateContent();
 addScrollHandler();
 highlightMenuItem();
+setInterval(() => createBubble(7), 1000);
 
 // Functions:
 function appendContent(newContent) {
@@ -93,6 +94,30 @@ function addWorldMap() {
     const totalFish = fishIds.length;
     document.getElementById("gifted-count").textContent = totalFish;
   }
+}
+
+function createBubble(max) {
+  const content = document.getElementById("content");
+  if (!content) return;
+  const numBubbles = content.getElementsByClassName("bubble").length;
+  if (numBubbles >= max) return;
+
+  const bubble = document.createElement("div");
+  bubble.classList.add("bubble");
+
+  bubble.style.left = (Math.random() * window.innerWidth) / 4 + "px";
+  const size = 10 + Math.random() * 30;
+  bubble.style.width = size + "px";
+  bubble.style.height = size + "px";
+
+  bubble.addEventListener("animationend", () => bubble.remove());
+
+  bubble.addEventListener("mouseenter", () => {
+    bubble.classList.add("pop");
+    setTimeout(() => bubble.remove(), 50);
+  });
+
+  content.appendChild(bubble);
 }
 
 function highlightMenuItem() {

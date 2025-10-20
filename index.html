@@ -71,6 +71,10 @@
         flex-direction: row;
         width: 100%;
         height: 100%;
+        background-image: url("assets/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
 
       #content {
@@ -82,10 +86,7 @@
         padding: 10px 20px;
         gap: 50px;
         align-items: center;
-        background-image: url("assets/background.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        padding-bottom: 100px;
       }
 
       #side-menu {
@@ -106,6 +107,29 @@
       #side-menu-welcome {
         font-weight: bold;
       }
+
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(135, 206, 250, 0.7);
+        border: 1px solid white;
+        animation: float 6s linear infinite;
+        overflow: hidden;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(95vh) scale(1);
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(66.66vh) scale(1.2);
+          opacity: 0;
+        }
+      }
     </style>
     <script type="module" src="./src/app.js"></script>
   </body>
@@ -114,8 +138,7 @@
     <div id="welcome-info">
       <h1>Välkommen till Elias Fiskar!</h1>
       <p>
-        Denna sida är till mina vänner som ger mig många fiskar och masssa
-        glädje.
+        En hemsida för mina vänner som ger mig många fiskar och masssa glädje.
       </p>
     </div>
 

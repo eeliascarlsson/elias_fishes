@@ -109,13 +109,13 @@ const sill_clinton = {
 const torsken_flink = {
   id: "torsken_flink",
   name: "Torsken Flink",
-  country: "",
-  englishCountry: "",
+  country: "Nederländerna",
+  englishCountry: "Netherlands",
   swag: 2,
   usability: 2,
   info: "",
-  from: "Gabbe",
-  date: "2026-01-01", //FIXME: Find date
+  from: "Lisa och Lise-Lotte",
+  date: "2024-04-30",
 };
 
 export const fishes = [
