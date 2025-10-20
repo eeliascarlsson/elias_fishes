@@ -114,7 +114,7 @@ const torsken_flink = {
   swag: 3,
   usability: 4,
   info: "Gosedjursfisk (och kylskåpsmagnet!) från Amsterdam.",
-  from: "Lisa och Lise-Lotte",
+  from: "Lisa och Bodil",
   date: "2024-04-30",
 };
 
