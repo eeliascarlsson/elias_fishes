@@ -125,7 +125,7 @@ const sillobull = {
   englishCountry: "Sweden",
   swag: 4,
   usability: 5,
-  info: "En mycket praktisk julklapp från Mamma och Pappa till mog och Gabbe i form av salt och peppar-kar. Ser fram emot att ha de här framme i köket och strö salt på min mat (och i såret på Gabbe).",
+  info: "En mycket praktisk julklapp från Mamma och Pappa till mig och Gabbe i form av salt och peppar-kar. Ser fram emot att ha de här framme i köket och strö salt på min mat (och i såret på Gabbe).",
   from: "Mamma och Pappa",
   date: "2025-12-12",
 };
