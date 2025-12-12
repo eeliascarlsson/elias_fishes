@@ -118,6 +118,18 @@ const torsken_flink = {
   date: "2024-04-30",
 };
 
+const sillobull = {
+  id: "sillobull",
+  name: "Sill och Bull",
+  country: "Sverige",
+  englishCountry: "Sweden",
+  swag: 4,
+  usability: 5,
+  info: "En mycket praktisk julklapp från Mamma och Pappa till mog och Gabbe i form av salt och peppar-kar. Ser fram emot att ha de här framme i köket och strö salt på min mat (och i såret på Gabbe).",
+  from: "Mamma och Pappa",
+  date: "2025-12-12",
+};
+
 export const fishes = [
   modric,
   billy,
@@ -129,4 +141,5 @@ export const fishes = [
   seynabo_sej,
   sill_clinton,
   torsken_flink,
+  sillobull,
 ];
