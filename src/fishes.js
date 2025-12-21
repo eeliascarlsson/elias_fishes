@@ -130,6 +130,66 @@ const sillobull = {
   date: "2025-12-12",
 };
 
+const bokmalen = {
+  id: "bokmalen",
+  name: "Bokmalen",
+  country: "Portugal",
+  englishCountry: "Portugal",
+  swag: 3,
+  usability: 3,
+  info: "Lise-Lotte slog på stort och har köpt FEM fiskar från sin resa i Portugal. Här är ett bokmärke i kork.",
+  from: "Lise-Lotte",
+  date: "2025-12-19",
+};
+
+const kortHajen = {
+  id: "korthajen",
+  name: "Korthajen",
+  country: "Portugal",
+  englishCountry: "Portugal",
+  swag: 2,
+  usability: 4,
+  info: "En kortlek med fint fiskmotiv. Hade typ kunnat tänka mig mönstret som badrumskakel?",
+  from: "Lise-Lotte",
+  date: "2025-12-19",
+};
+
+const hAland = {
+  id: "hAland",
+  name: "hÅland",
+  country: "Portugal",
+  englishCountry: "Portugal",
+  swag: 2,
+  usability: 2,
+  info: "Nyckelring i fiskform.",
+  from: "Lise-Lotte",
+  date: "2025-12-19",
+};
+
+const sardinStrumpor = {
+  id: "sardinStrumpor",
+  name: "Sardin-strumpor",
+  country: "Portugal",
+  englishCountry: "Portugal",
+  swag: 4,
+  usability: 4,
+  info: "Finaste Portugisiskt hantverk från en turistbutik. (Lite makaber bild på förpackningen tbh)",
+  from: "Lise-Lotte",
+  date: "2025-12-19",
+};
+
+const olTuna = {
+  id: "olTuna",
+  name: "ÖlTuna",
+  country: "Portugal",
+  englishCountry: "Portugal",
+  swag: 1,
+  usability: 3,
+  info: "De 30 Carlsbergs-underläggen Erik snott från Sivans får konkurrens av dessa fisk-underlägg i kork.",
+  from: "Lise-Lotte",
+  date: "2025-12-19",
+};
+
 export const fishes = [
   modric,
   billy,
@@ -142,4 +202,9 @@ export const fishes = [
   sill_clinton,
   torsken_flink,
   sillobull,
+  bokmalen,
+  kortHajen,
+  hAland,
+  sardinStrumpor,
+  olTuna,
 ];
