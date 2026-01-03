@@ -190,6 +190,18 @@ const olTuna = {
   date: "2025-12-19",
 };
 
+const davidSillva = {
+  id: "davidSillva",
+  name: "David Sillva",
+  country: "Italien",
+  englishCountry: "Italy",
+  swag: 4,
+  usability: 2,
+  info: "Felstavat La Spezia - ett riktigt collectors item. Denna fick faktiskt sitta på kylskåpet! Får se hur länge den klarar sig.",
+  from: "Erik",
+  date: "2025-12-27",
+};
+
 export const fishes = [
   modric,
   billy,
@@ -207,4 +219,5 @@ export const fishes = [
   hAland,
   sardinStrumpor,
   olTuna,
+  davidSillva,
 ];
