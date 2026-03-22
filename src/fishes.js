@@ -202,6 +202,30 @@ const davidSillva = {
   date: "2025-12-27",
 };
 
+const pikeopuyol = {
+  id: "pikeopuyol",
+  name: "Pike och Puyål",
+  country: "Indien",
+  englishCountry: "India",
+  swag: 4,
+  usability: 4,
+  info: "Hela vägen från indien kommer ännu en duo till samlingen. Pappa lurade med sina kollegor att leta fisk-souvenir till sin (27årige) son.",
+  from: "Pappa",
+  date: "2026-03-15",
+};
+
+const nemo = {
+  id: "nemo",
+  name: "Nemo",
+  country: "Turkiet",
+  englishCountry: "Turkey",
+  swag: 2,
+  usability: 3,
+  info: "Klassisk souvenir från flygplatsen i Istanbul. Magnet och kapsylöppnare",
+  from: "Pappa",
+  date: "2026-03-15",
+};
+
 export const fishes = [
   modric,
   billy,
@@ -220,4 +244,6 @@ export const fishes = [
   sardinStrumpor,
   olTuna,
   davidSillva,
+  pikeopuyol,
+  nemo,
 ];
