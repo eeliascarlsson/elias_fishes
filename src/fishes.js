@@ -226,6 +226,18 @@ const nemo = {
   date: "2026-03-15",
 };
 
+const willy = {
+  id: "willy",
+  name: "Willy",
+  country: "Thailand",
+  englishCountry: "Thailand",
+  swag: 3,
+  usability: 4,
+  info: "Skål gjord av en halv koksnöt med delfinmotiv. Visste ni att det dör fler människor av kokosnötter i huvudet än delfinatacker varje år?",
+  from: "Alexander (Edvins kollega).",
+  date: "2026-04-04",
+};
+
 export const fishes = [
   modric,
   billy,
@@ -246,4 +258,5 @@ export const fishes = [
   davidSillva,
   pikeopuyol,
   nemo,
+  willy
 ];
