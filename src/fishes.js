@@ -238,6 +238,30 @@ const willy = {
   date: "2026-04-04",
 };
 
+const ariel = {
+  id: "ariel",
+  name: "Ariel",
+  country: "Polen",
+  englishCountry: "Poland",
+  swag: 3,
+  usability: 2,
+  info: "Man får vara generös med fisk-definitionen med souvenierer från en stad utan kust.",
+  from: "PH",
+  date: "2026-04-12",
+}
+
+const saraDinius = {
+  id: "saraDinius",
+  name: "Sara Dinius",
+  country: "Kroatien",
+  englishCountry: "Croatia",
+  swag: 4,
+  usability: 4,
+  info: "Fulast hittills enligt Gabbe.",
+  from: "Joel",
+  date: "2026-05-11",
+}
+
 export const fishes = [
   modric,
   billy,
@@ -258,5 +282,7 @@ export const fishes = [
   davidSillva,
   pikeopuyol,
   nemo,
-  willy
+  willy,
+  ariel,
+  saraDinius
 ];
